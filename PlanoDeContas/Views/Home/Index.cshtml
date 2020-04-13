@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    List<Conta> modelContas = ViewBag.Conta;
+    double valorTotal=0;
+}
+    <body>
+        <div class="table-hover">
+            <form action="/Home/Gravar" method="post">
+                <input type="number" name="valor" />
+                <br />
+                <select name="tipoConta" #tipoConta>
+                    <option value="Crédito">Crédito</option>
+                    <option value="Débito">Débito</option>
+                </select>
+                <button>Gravar</button>
+            </form>
+        </div>
+        <div class="table-bordered">
+            <ul class="col-lg-offset-4">
+
+                @foreach (var item in modelContas)
+                {
+                    if (item.TipoConta == "Crédito")
+                    {
+                        <li class="alert-success">@item.TipoConta - Valor do Item: @item.Valor</li>
+                        valorTotal += item.Valor;
+                    }
+                    else
+                    {
+                        <li class="alert-danger">@item.TipoConta - Valor do Item: @item.Valor</li>
+                        valorTotal -= item.Valor;
+                    }
+                }
+            </ul>
+            <ul class="col-lg-offset-4">
+                @if (modelContas != null)
+                {
+                    if (valorTotal < 0)
+                    {
+                        <content class="alert-danger">Valor Total: @valorTotal</content>
+                    }
+                    else
+                    {
+                        <content class="alert-success">Valor Total: @valorTotal</content>
+                    }
+                }
+            </ul>
+        </div>
+    </body>
+

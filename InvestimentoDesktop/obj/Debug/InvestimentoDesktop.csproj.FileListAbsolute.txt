@@ -1,0 +1,10 @@
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\bin\Debug\InvestimentoDesktop.exe.config
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\bin\Debug\InvestimentoDesktop.exe
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\bin\Debug\InvestimentoDesktop.pdb
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\obj\Debug\InvestimentoDesktop.csprojAssemblyReference.cache
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\obj\Debug\InvestimentoDesktop.HomeForm.resources
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\obj\Debug\InvestimentoDesktop.OperacaoForm.resources
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\obj\Debug\InvestimentoDesktop.Properties.Resources.resources
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\obj\Debug\InvestimentoDesktop.csproj.GenerateResource.cache
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\obj\Debug\InvestimentoDesktop.exe
+F:\repos\Public\PlanoDeContas\InvestimentoDesktop\obj\Debug\InvestimentoDesktop.pdb

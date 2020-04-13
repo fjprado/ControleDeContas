@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    List<Trade> modelTrades = ViewBag.Trades;
+    double valorTotalOperacoes = 0;
+    int IdAtivo = ViewBag.AtivoId;
+    List<Ativo> modelAtivo = ViewBag.Ativos;
+}
+<body>
+    <div class="text-center">
+        <form action="/Home/CadastrarAtivo" method="post">
+            <label>Tipo do Ativo</label>
+            <select name="tipoAtivo" #tipoAtivo>
+                <option value="Ação">Ação</option>
+                <option value="Fundo de Investimento">Fundo de Investimento</option>
+                <option value="Fundo Imobiliário">Fundo Imobiliário</option>
+                <option value="Renda Fixa">Renda Fixa</option>
+            </select>
+            <label>Sigla</label>
+            <input type="text" name="sigla" maxlength="10" />
+            <label>Empresa</label>
+            <input type="text" name="empresa" maxlength="30" />
+            <button>Cadastrar Ativo</button>
+        </form>
+
+    </div>
+    <div class="text-center">
+        <form action="/Home/ConfirmarOperacao" method="post">
+            <select name="ativoId" #ativoId>
+                <option selected>Selecione...</option>
+                @foreach (var item in modelAtivo)
+                {
+                    <option value="@item.Id">@item.Sigla</option>
+                }
+            </select>
+            <label>Tipo da Operação</label>
+            <select name="tipoOperacao" #tipoOperacao>
+                <option value="Venda">Venda</option>
+                <option value="Compra">Compra</option>
+            </select>
+            <label>Quantidade</label>
+            <input type="number" name="quantidade" />
+            <label>Valor</label>
+            <input type="number" name="valor" />
+            <button>Confirmar Operação</button>
+        </form>
+    </div>
+    <div>
+        <table align="center" style="width:100%">
+            <tr>
+                <th>Id. Operação</th>
+                <th>Ativo</th>
+                <th>Tipo Operação</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Valor Total</th>
+            </tr>
+            @foreach (var item in modelTrades)
+            {
+                double valorTrade = @item.Quantidade * @item.Valor;
+                valorTotalOperacoes += valorTrade;
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@modelAtivo.Find(a => a.Id == item.AtivoId).Sigla</td>
+                    <td>@item.TipoOperacao</td>
+                    <td>@item.Quantidade</td>
+                    <td>@item.Valor</td>
+                    <td>@valorTrade</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <label>Valor total das operações: @valorTotalOperacoes</label>
+    </div>
+</body>
